@@ -1,0 +1,72 @@
+
+
+.root{
+	width:800px;
+}
+
+.contacts{
+	width:100%;
+	line-height:16px;
+	font: 14px Arial;
+}
+
+.contacts th{
+	background-color:#cccccc;
+}
+
+.contacts td, .contacts th{
+	text-align:left;
+	padding:0px;
+	height: 20px;
+}
+
+.contacts tr{
+	height:30px;
+}
+
+.contacts tr:hover td{
+	background-color:#aaaaaa;
+}
+
+.contacts tr:nth-child(odd){
+	background-color:#eeeeee;
+}
+
+.contacts tr.selected td{
+	background-color:red;
+}
+
+.buttons{
+	height:40px;
+	padding-top:3px;
+}
+
+.buttons button{
+	float:right;
+	margin-left:5px;
+	width:80px;
+	font-size:16px;
+	line-height:22px;
+}
+
+.editfields .field{
+	line-height:30px;
+	font-size:20px;
+	width:100%;
+}
+
+.editfields{
+}
+
+.field-wrapper{
+	display:inline-block;
+}
+
+.editfields .field-wrapper:first-child{
+	width:280px;
+}
+
+.editfields .field-wrapper:last-child{
+	width:450px;
+	float:right;
+}

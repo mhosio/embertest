@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact list</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+<script type="text/x-handlebars">
+  <div class="root">
+  	   <div>
+  	   	   {{outlet contacts}}
+  	   </div>
+	   <div>
+		   {{outlet fields}}
+	   </div>
+	</div>
+</script> 
+
+<script type="text/x-handlebars" id="table">
+	  <table class="contacts" cellspacing="0">
+		  <tr>
+			  <th>First name</th>
+			  <th>Last name</th>
+			  <th>Phone number</th>
+			  <th>Email address</th>
+		  </tr>
+	    {{#each}}
+			    <tr {{bind-attr class="className"}} {{action 'rowSelect'}}>
+				    <td>{{firstName}}</td>
+				    <td>{{lastName}}</td>
+				    <td>{{phone}}</td>
+				    <td>{{email}}</td>
+			    </tr>
+
+		 {{/each}}
+	   </table>
+	   	   <div class="buttons">
+	   	   <button class="button" id="new-button" {{action "newContact"}}> New</button>
+	   	   <button class="button" id="delete-button" {{action "deleteContact"}}> Delete</button>
+	   	   <button class="button" id="edit-button" {{action "editContact"}}> Edit</button>
+	   </div>
+</script> 
+<script type="text/x-handlebars" id="edit">
+  	   {{#if editedContact}}
+	   <div class="editfields">
+	   	   <div>
+	   	   		<div class="field-wrapper">
+	   	   			<div>First name</div>
+	   	   			{{input value=editedContact.firstName class="field"}}
+	   	   		</div>
+	   	   		<div class="field-wrapper">
+	   	   			<div>Last name</div>
+	   	   			{{input value=editedContact.lastName class="field"}}
+			   	</div>
+		   </div>
+		   <div>
+	   	   		<div class="field-wrapper">
+	   	   			<div>Phone number</div>
+	   	   			{{input value=editedContact.phone class="field"}}
+	   	   		</div>
+	   	   		<div class="field-wrapper">
+	   	   			<div>Email address</div>
+	   	   			{{input value=editedContact.email class="field"}}
+	   	   		</div>
+		   </div>
+	   </div>
+
+	   <div class="buttons">
+	   	   <button class="button" id="new-button" {{action "cancelEdit"}}> Cancel</button>
+	   	   <button class="button" id="edit-button" {{action "saveContact"}}> Save</button>
+	   </div>
+	   {{/if}}
+</script> 
+<script src="js/libs/jquery-1.10.2.js"></script>
+<script src="js/libs/handlebars-1.1.2.js"></script>
+<script src="js/libs/ember-1.5.0.js"></script>
+<script src="js/libs/ember-data.js"></script>
+<script src="crud.js"></script>
+</body>
+</html>
